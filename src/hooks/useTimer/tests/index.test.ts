@@ -2,10 +2,11 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import useTimer from '..';
 
 jest.useFakeTimers();
+const second = 1000;
 
 describe('useTimer', () => {
     it('should have initial state.', () => {
-        const time = 500;
+        const time = 5;
 
         const { result } = renderHook(() => useTimer(time))
 
@@ -13,8 +14,8 @@ describe('useTimer', () => {
     });
 
     it('should decrese time after it is started.', () => {
-        const time = 3000;
-        const elapsedTime = 1000;
+        const time = 3;
+        const elapsedTime = second;
         const { result } = renderHook(() => useTimer(time));
 
         act(() => {
@@ -22,12 +23,12 @@ describe('useTimer', () => {
             jest.advanceTimersByTime(elapsedTime);
         });
 
-        expect(result.current.currentTime).toBe(time - elapsedTime);
+        expect(result.current.currentTime).toBe(time - 1);
     });
 
     it('should not decrese time if it is not turned on.', () => {
-        const time = 3000;
-        const elapsedTime = 1000;
+        const time = 3;
+        const elapsedTime = second;
         const { result } = renderHook(() => useTimer(time));
 
         act(() => {
@@ -38,8 +39,8 @@ describe('useTimer', () => {
     });
 
     it('should show that the timer is finished and stop it after the time elapsed.', () => {
-        const time = 1000;
-        const elapsedTime = 5000;
+        const time = 5;
+        const elapsedTime = 6 * second;
         const { result } = renderHook(() => useTimer(time));
 
         act(() => {

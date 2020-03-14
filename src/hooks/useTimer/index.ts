@@ -16,7 +16,7 @@ const useTimer = (time: number): ITimerState => {
     React.useEffect(() => {
         if (isOn) {
             const interval = setInterval(() => {
-                setCurrentTime((t: number): number => t - second);
+                setCurrentTime((t: number): number => --t);
             }, second)
 
             return () => { 

@@ -1,15 +1,11 @@
 import React from 'react';
-import Button from '../Button';
+import Timer from '../Timer';
 import styles from './styles.module.scss';
 
 function App() {
-  const onClick = (e: React.MouseEvent) => {
-    console.log('halo');
-  }
-
   return (
     <div className={styles['app']}>
-      <Button onClick={onClick}>Start</Button>
+      <Timer />
     </div>
   );
 }

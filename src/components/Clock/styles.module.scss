@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+$height: 300px;
+$width: 300px;
+$stroke-width: 0.3em;
+
+.clock {
+    position: relative;
+    height: $height;
+    width: $width;
+
+    &__label {
+        position: absolute;
+        width: $height;
+        height: $width;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+    }
+
+    &__circle {
+        fill: none;
+        stroke: none;
+    }
+
+    &__path {
+        stroke-width: $stroke-width;
+        stroke: $color-secondary;
+    }
+
+    &__path-remaining {
+        stroke-width: $stroke-width;
+        stroke-linecap: round;
+        transform-origin: center;
+        transition: 1s linear all;
+        stroke: $color-primary;
+        transform: scale(-1, 1) rotate(90deg);
+    }
+}
