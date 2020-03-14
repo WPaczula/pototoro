@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.button {
+    @include focusable;
+    
+    &:active {
+        background: $color-secondary-dark;
+    }
+    
+    color: $color-primary;
+    background: $color-secondary;
+    border: none;
+    border-radius: 1em;
+    padding: 1em;
+    cursor: pointer;
+}
