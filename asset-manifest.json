@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pototoro/static/css/main.7842790e.chunk.css",
-    "main.js": "/pototoro/static/js/main.5b43164d.chunk.js",
-    "main.js.map": "/pototoro/static/js/main.5b43164d.chunk.js.map",
+    "main.css": "/pototoro/static/css/main.5cccb300.chunk.css",
+    "main.js": "/pototoro/static/js/main.8b6aa133.chunk.js",
+    "main.js.map": "/pototoro/static/js/main.8b6aa133.chunk.js.map",
     "runtime-main.js": "/pototoro/static/js/runtime-main.eb2d1047.js",
     "runtime-main.js.map": "/pototoro/static/js/runtime-main.eb2d1047.js.map",
     "static/js/2.9370fd09.chunk.js": "/pototoro/static/js/2.9370fd09.chunk.js",
     "static/js/2.9370fd09.chunk.js.map": "/pototoro/static/js/2.9370fd09.chunk.js.map",
     "index.html": "/pototoro/index.html",
-    "precache-manifest.077904e8b1abd41742b6876e4b5a7807.js": "/pototoro/precache-manifest.077904e8b1abd41742b6876e4b5a7807.js",
+    "precache-manifest.2c0137c78e8b8dcd0390ca13bcdda81b.js": "/pototoro/precache-manifest.2c0137c78e8b8dcd0390ca13bcdda81b.js",
     "service-worker.js": "/pototoro/service-worker.js",
-    "static/css/main.7842790e.chunk.css.map": "/pototoro/static/css/main.7842790e.chunk.css.map",
+    "static/css/main.5cccb300.chunk.css.map": "/pototoro/static/css/main.5cccb300.chunk.css.map",
     "static/js/2.9370fd09.chunk.js.LICENSE.txt": "/pototoro/static/js/2.9370fd09.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.eb2d1047.js",
     "static/js/2.9370fd09.chunk.js",
-    "static/css/main.7842790e.chunk.css",
-    "static/js/main.5b43164d.chunk.js"
+    "static/css/main.5cccb300.chunk.css",
+    "static/js/main.8b6aa133.chunk.js"
   ]
 }
