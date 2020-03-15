@@ -50,5 +50,17 @@ describe('useTimer', () => {
 
         expect(result.current.currentTime).toBe(0);
         expect(result.current.isFinished).toBe(true);
-    })
+    });
+
+    it('should update time if argument updates.', () => {
+        let time = 10;
+        const { result, rerender } = renderHook(() => useTimer(time));
+
+        act(() => {
+            time = 20;
+            rerender();
+        });
+
+        expect(result.current.currentTime).toBe(time);
+    });
 });

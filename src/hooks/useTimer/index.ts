@@ -14,6 +14,10 @@ const useTimer = (time: number): ITimerState => {
     const [isFinished, setIsFinished] = React.useState<boolean>(false);
 
     React.useEffect(() => {
+        setCurrentTime(time);
+    }, [time, setCurrentTime])
+
+    React.useEffect(() => {
         if (isOn) {
             const interval = setInterval(() => {
                 setCurrentTime((t: number): number => --t);
