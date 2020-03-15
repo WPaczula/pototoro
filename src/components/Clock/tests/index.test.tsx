@@ -14,13 +14,12 @@ describe('<Clock />', () => {
     });
 
     it('should display formatted seconds.', () => {
-        const hours = 5;
         const minutes = 10;
         const seconds = 15;
-        const totalSeconds = seconds + minutes * 60 + hours * 3600;
+        const totalSeconds = seconds + minutes * 60;
         const { getByText } = render(<Clock initialTime={totalSeconds} timeLeft={totalSeconds} />);
 
-        const label = getByText(`${hours}:${minutes}:${seconds}`);
+        const label = getByText(`${minutes}:${seconds}`);
 
         expect(label).toBeInTheDocument();
     });

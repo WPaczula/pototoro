@@ -2,8 +2,8 @@ import * as React from 'react';
 import styles from './styles.module.scss';
 
 interface IClockProps {
-    timeLeft: number
-    initialTime: number,
+    timeLeft?: number
+    initialTime?: number,
 };
 
 const FULL_DASH_ARRAY = 283;
@@ -15,23 +15,21 @@ const calculateTimeFraction = (initialTime: number, timeLeft: number): number =>
 }
 
 const formatTime = (totalSeconds: number): string => {
-    const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor(totalSeconds % 3600 / 60);
     const seconds = Math.floor(totalSeconds % 3600 % 60);
 
-    if(totalSeconds === 0) {
-        return totalSeconds.toString();
-    }
-
-    const formattedTime = [hours, minutes, seconds]
-        .filter((n: number) => n > 0)
+    const formattedTime = [minutes, seconds]
+        .map((n: number) => n > 9 ? n.toString() : `0${n}`)
         .join(':');
 
     return formattedTime; 
 };
 
 const Clock: React.FunctionComponent<IClockProps> = ({ timeLeft, initialTime }) => {
-  const dashArray = calculateTimeFraction(initialTime, timeLeft) * FULL_DASH_ARRAY; 
+  const dashArray: number = initialTime && timeLeft
+    ? calculateTimeFraction(initialTime, timeLeft) * FULL_DASH_ARRAY
+    : 0;
+
     
   return (
     <div className={styles["clock"]}>
@@ -52,7 +50,11 @@ const Clock: React.FunctionComponent<IClockProps> = ({ timeLeft, initialTime }) 
       </g>
     </svg>
     <span className={styles["clock__label"]}>
-      {formatTime(timeLeft)}
+      {
+        timeLeft 
+          ? formatTime(timeLeft) 
+          : '-'
+      }
     </span>
   </div>
   );
