@@ -17,10 +17,19 @@ describe('<Clock />', () => {
         const minutes = 10;
         const seconds = 15;
         const totalSeconds = seconds + minutes * 60;
-        const { getByText } = render(<Clock initialTime={totalSeconds} timeLeft={totalSeconds} />);
+        const { getByTestId } = render(<Clock initialTime={totalSeconds} timeLeft={totalSeconds} />);
 
-        const label = getByText(`${minutes}:${seconds}`);
+        const label = getByTestId('clock-label');
 
-        expect(label).toBeInTheDocument();
+        expect(label.textContent).toBe('10:15');
     });
+
+    it('should display one hour at max.', () => {
+        const hour = 60 * 60;
+        const { getByTestId } = render(<Clock initialTime={hour} timeLeft={hour} />);
+
+        const label = getByTestId('clock-label');
+
+        expect(label.textContent).toBe('01:00:00');
+    })
 });

@@ -9,9 +9,9 @@ import { minute } from '../../../utils/constants';
 
 interface IPomodoroSetup {
     state: ITimerSetupState,
-    onWorkTimeChange: (e: React.FormEvent<HTMLInputElement>) => void,
-    onShortBreakTimeChange: (e: React.FormEvent<HTMLInputElement>) => void,
-    onLongBreakTimeChange: (e: React.FormEvent<HTMLInputElement>) => void,
+    onWorkTimeChange: (minutes: number) => void,
+    onShortBreakTimeChange: (minutes: number) => void,
+    onLongBreakTimeChange: (minutes: number) => void,
 }
 
 const initialState: ITimerSetupState = { 
@@ -20,27 +20,19 @@ const initialState: ITimerSetupState = {
   shortBreakTime: 10 * minute
 };
 
-const toMinute = (inputValue: string) => {
-  if (inputValue === '') {
-    return 0;
-  }
-
-  return Number(inputValue) * minute;
-}
-
 const usePomodoroTimersSetup = (): IPomodoroSetup => {
     const [state, dispatch] = React.useReducer(timeReducer, initialState);
     
-    const onWorkTimeChange = React.useCallback((e: React.FormEvent<HTMLInputElement>): void => {
-      dispatch({ type: SET_WORK_TIME, time: toMinute(e.currentTarget.value) });
+    const onWorkTimeChange = React.useCallback((minutes: number): void => {
+      dispatch({ type: SET_WORK_TIME, time: minutes * minute });
     }, []);
     
-    const onShortBreakTimeChange = React.useCallback((e: React.FormEvent<HTMLInputElement>): void => {
-      dispatch({ type: SET_SHORT_BREAK_TIME, time: toMinute(e.currentTarget.value) });
+    const onShortBreakTimeChange = React.useCallback((minutes: number): void => {
+      dispatch({ type: SET_SHORT_BREAK_TIME, time: minutes * minute });
     }, []);
     
-    const onLongBreakTimeChange = React.useCallback((e: React.FormEvent<HTMLInputElement>): void => {
-      dispatch({ type: SET_LONG_BREAK_TIME, time: toMinute(e.currentTarget.value) });
+    const onLongBreakTimeChange = React.useCallback((minutes: number): void => {
+      dispatch({ type: SET_LONG_BREAK_TIME, time: minutes * minute });
     }, []);
   
     return {

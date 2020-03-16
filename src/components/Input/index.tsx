@@ -2,26 +2,32 @@ import * as React from 'react';
 import classnames from 'classnames';
 import styles from './styles.module.scss';
 
-interface IInputProps {
-    initialValue?: string,
-    onChange: (event: React.FormEvent<HTMLInputElement>) => void,
+interface ITimeInputProps {
+    initialValue?: number,
+    onChange: (minutes: number) => void,
     className?: string, 
 }
 
-const Input: React.FunctionComponent<IInputProps> = ({ initialValue = '', onChange, className }) => {
-  const [value, setValue] = React.useState<string>(initialValue);
+const TimeInput: React.FunctionComponent<ITimeInputProps> = ({ initialValue = 0, onChange, className }) => {
+  const [value, setValue] = React.useState<number>(initialValue);
 
   const localOnChange = React.useCallback((event: React.FormEvent<HTMLInputElement>) => {
-      setValue(event.currentTarget.value);
-      onChange(event);
+      const minutes = event.currentTarget.value !== '' 
+        ? Number(event.currentTarget.value)
+        : 0;
+      setValue(minutes);
+      onChange(minutes);
   }, 
   [setValue, onChange]);
 
   return <input 
     className={classnames(styles['input'], className)} 
-    value={value} 
+    type="number"
+    min="0"
+    max="60"
+    value={value.toString()} 
     onChange={localOnChange} 
   />;
 };
 
-export default Input;
+export default TimeInput;

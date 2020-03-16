@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from '../Button';
 import Clock from '../Clock';
-import Input from '../Input';
+import TimeInput from '../Input';
 import useTimer from '../../hooks/useTimer';
 import styles from './styles.module.scss';
 import usePomodoroTimersSetup from './usePomodoroTimersSetup';
@@ -30,25 +30,25 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
       <Clock timeLeft={currentTime} initialTime={state.workTime} />
       <label className={styles['timer__label']}>
         Work [min]
-        <Input 
+        <TimeInput 
           className={styles['timer__input']} 
-          initialValue={(state.workTime / minute).toString()} 
+          initialValue={(state.workTime / minute)} 
           onChange={onWorkTimeChange} 
         />
       </label>
       <label className={styles['timer__label']}>
         Short break [min]
-        <Input 
+        <TimeInput 
           className={styles['timer__input']} 
-          initialValue={(state.shortBreakTime / minute).toString()} 
+          initialValue={(state.shortBreakTime / minute)} 
           onChange={onShortBreakTimeChange} 
         />
       </label>
       <label className={styles['timer__label']}>
         Long break [min]
-        <Input 
+        <TimeInput 
           className={styles['timer__input']} 
-          initialValue={(state.longBreakTime / minute).toString()} 
+          initialValue={(state.longBreakTime / minute)} 
           onChange={onLongBreakTimeChange} 
         />
       </label>

@@ -15,10 +15,12 @@ const calculateTimeFraction = (initialTime: number, timeLeft: number): number =>
 }
 
 const formatTime = (totalSeconds: number): string => {
-    const minutes = Math.floor(totalSeconds % 3600 / 60);
-    const seconds = Math.floor(totalSeconds % 3600 % 60);
+    const hours: number = Math.floor(totalSeconds / 3600);
+    const minutes: number = Math.floor(totalSeconds / 60) - (hours * 60);
+    const seconds: number = Math.floor(totalSeconds % 60);
 
-    const formattedTime = [minutes, seconds]
+    const formattedTime = [hours, minutes, seconds]
+        .filter((time, i) => !(i === 0 && time === 0))
         .map((n: number) => n > 9 ? n.toString() : `0${n}`)
         .join(':');
 
@@ -49,7 +51,7 @@ const Clock: React.FunctionComponent<IClockProps> = ({ timeLeft, initialTime }) 
         ></path>
       </g>
     </svg>
-    <span className={styles["clock__label"]}>
+    <span className={styles["clock__label"]} data-testid="clock-label">
       {
         timeLeft 
           ? formatTime(timeLeft) 
