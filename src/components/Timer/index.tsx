@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Button from '../Button';
-import Clock from '../Clock';
-import TimeInput from '../Input';
-import useTimer from '../../hooks/useTimer';
-import styles from './styles.module.scss';
+import Button from 'components/Button';
+import Clock from 'components/Clock';
+import TimeInput from 'components/Input';
+import useTimer from 'hooks/useTimer';
+import { minute } from 'utils/constants';
 import usePomodoroTimersSetup from './usePomodoroTimersSetup';
-import { minute } from '../../utils/constants';
+import styles from './styles.module.scss';
 
 interface ITimerProps {
 }

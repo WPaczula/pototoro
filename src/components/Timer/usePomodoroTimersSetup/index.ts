@@ -5,7 +5,7 @@ import {
   SET_SHORT_BREAK_TIME,
   SET_LONG_BREAK_TIME
 } from './actions';
-import { minute } from '../../../utils/constants';
+import { minute } from 'utils/constants';
 
 interface IPomodoroSetup {
     state: ITimerSetupState,
