@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pototoro/static/css/main.5cccb300.chunk.css",
-    "main.js": "/pototoro/static/js/main.286b6ec9.chunk.js",
-    "main.js.map": "/pototoro/static/js/main.286b6ec9.chunk.js.map",
-    "runtime-main.js": "/pototoro/static/js/runtime-main.eb2d1047.js",
-    "runtime-main.js.map": "/pototoro/static/js/runtime-main.eb2d1047.js.map",
-    "static/js/2.9370fd09.chunk.js": "/pototoro/static/js/2.9370fd09.chunk.js",
-    "static/js/2.9370fd09.chunk.js.map": "/pototoro/static/js/2.9370fd09.chunk.js.map",
+    "main.css": "/pototoro/static/css/main.68a5ae8e.chunk.css",
+    "main.js": "/pototoro/static/js/main.cd5aa2f4.chunk.js",
+    "main.js.map": "/pototoro/static/js/main.cd5aa2f4.chunk.js.map",
+    "runtime-main.js": "/pototoro/static/js/runtime-main.5da4f4bb.js",
+    "runtime-main.js.map": "/pototoro/static/js/runtime-main.5da4f4bb.js.map",
+    "static/js/2.26f4ac4c.chunk.js": "/pototoro/static/js/2.26f4ac4c.chunk.js",
+    "static/js/2.26f4ac4c.chunk.js.map": "/pototoro/static/js/2.26f4ac4c.chunk.js.map",
     "index.html": "/pototoro/index.html",
-    "precache-manifest.3889113bb387707ddcc958e3925e6cf1.js": "/pototoro/precache-manifest.3889113bb387707ddcc958e3925e6cf1.js",
+    "precache-manifest.5eab1e04c49d76cd08cc3f4f5eb0a130.js": "/pototoro/precache-manifest.5eab1e04c49d76cd08cc3f4f5eb0a130.js",
     "service-worker.js": "/pototoro/service-worker.js",
-    "static/css/main.5cccb300.chunk.css.map": "/pototoro/static/css/main.5cccb300.chunk.css.map",
-    "static/js/2.9370fd09.chunk.js.LICENSE.txt": "/pototoro/static/js/2.9370fd09.chunk.js.LICENSE.txt"
+    "static/css/main.68a5ae8e.chunk.css.map": "/pototoro/static/css/main.68a5ae8e.chunk.css.map",
+    "static/js/2.26f4ac4c.chunk.js.LICENSE.txt": "/pototoro/static/js/2.26f4ac4c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.eb2d1047.js",
-    "static/js/2.9370fd09.chunk.js",
-    "static/css/main.5cccb300.chunk.css",
-    "static/js/main.286b6ec9.chunk.js"
+    "static/js/runtime-main.5da4f4bb.js",
+    "static/js/2.26f4ac4c.chunk.js",
+    "static/css/main.68a5ae8e.chunk.css",
+    "static/js/main.cd5aa2f4.chunk.js"
   ]
 }
