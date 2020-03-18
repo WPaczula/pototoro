@@ -2,9 +2,9 @@
 @import '~styles/variables';
 
 .input {
-    @include focusable;
-        
-    border: 2px solid $color-secondary;
-    border-radius: 0.3em;
-    padding: 0.2em 0.5em;
+	@include focusable;
+
+	border: 2px solid $color-secondary;
+	border-radius: 0.3em;
+	padding: 0.2em 0.5em;
 }

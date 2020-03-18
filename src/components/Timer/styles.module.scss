@@ -1,12 +1,11 @@
 .timer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 
-    &__label {
-        display: flex;
-        flex-direction: column;
-        margin: 0.5em 0;
-    }
-
+	&__label {
+		display: flex;
+		flex-direction: column;
+		margin: 0.5em 0;
+	}
 }

@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import App from '..';
 
 test('renders without an error', () => {
-  const { baseElement } = render(<App />);
+	const { baseElement } = render(<App />);
 
-  expect(baseElement).toBeInTheDocument();
+	expect(baseElement).toBeInTheDocument();
 });

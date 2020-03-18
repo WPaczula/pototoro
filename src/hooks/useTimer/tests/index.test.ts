@@ -1,66 +1,66 @@
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react-hooks';
 import useTimer from '..';
 
 jest.useFakeTimers();
 const second = 1000;
 
 describe('useTimer', () => {
-    it('should have initial state.', () => {
-        const time = 5;
+	it('should have initial state.', () => {
+		const time = 5;
 
-        const { result } = renderHook(() => useTimer(time))
+		const { result } = renderHook(() => useTimer(time));
 
-        expect(result.current.currentTime).toBe(time);
-    });
+		expect(result.current.currentTime).toBe(time);
+	});
 
-    it('should decrese time after it is started.', () => {
-        const time = 3;
-        const elapsedTime = second;
-        const { result } = renderHook(() => useTimer(time));
+	it('should decrese time after it is started.', () => {
+		const time = 3;
+		const elapsedTime = second;
+		const { result } = renderHook(() => useTimer(time));
 
-        act(() => {
-            result.current.toggle();
-            jest.advanceTimersByTime(elapsedTime);
-        });
+		act(() => {
+			result.current.toggle();
+			jest.advanceTimersByTime(elapsedTime);
+		});
 
-        expect(result.current.currentTime).toBe(time - 1);
-    });
+		expect(result.current.currentTime).toBe(time - 1);
+	});
 
-    it('should not decrese time if it is not turned on.', () => {
-        const time = 3;
-        const elapsedTime = second;
-        const { result } = renderHook(() => useTimer(time));
+	it('should not decrese time if it is not turned on.', () => {
+		const time = 3;
+		const elapsedTime = second;
+		const { result } = renderHook(() => useTimer(time));
 
-        act(() => {
-            jest.advanceTimersByTime(elapsedTime);
-        });
+		act(() => {
+			jest.advanceTimersByTime(elapsedTime);
+		});
 
-        expect(result.current.currentTime).toBe(time);
-    });
+		expect(result.current.currentTime).toBe(time);
+	});
 
-    it('should show that the timer is finished and stop it after the time elapsed.', () => {
-        const time = 5;
-        const elapsedTime = 6 * second;
-        const { result } = renderHook(() => useTimer(time));
+	it('should show that the timer is finished and stop it after the time elapsed.', () => {
+		const time = 5;
+		const elapsedTime = 6 * second;
+		const { result } = renderHook(() => useTimer(time));
 
-        act(() => {
-            result.current.toggle();
-            jest.advanceTimersByTime(elapsedTime);
-        });
+		act(() => {
+			result.current.toggle();
+			jest.advanceTimersByTime(elapsedTime);
+		});
 
-        expect(result.current.currentTime).toBe(0);
-        expect(result.current.isFinished).toBe(true);
-    });
+		expect(result.current.currentTime).toBe(0);
+		expect(result.current.isFinished).toBe(true);
+	});
 
-    it('should update time if argument updates.', () => {
-        let time = 10;
-        const { result, rerender } = renderHook(() => useTimer(time));
+	it('should update time if argument updates.', () => {
+		let time = 10;
+		const { result, rerender } = renderHook(() => useTimer(time));
 
-        act(() => {
-            time = 20;
-            rerender();
-        });
+		act(() => {
+			time = 20;
+			rerender();
+		});
 
-        expect(result.current.currentTime).toBe(time);
-    });
+		expect(result.current.currentTime).toBe(time);
+	});
 });
