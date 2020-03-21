@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/pototoro/static/css/main.68a5ae8e.chunk.css",
-    "main.js": "/pototoro/static/js/main.cd5aa2f4.chunk.js",
-    "main.js.map": "/pototoro/static/js/main.cd5aa2f4.chunk.js.map",
+    "main.js": "/pototoro/static/js/main.70329699.chunk.js",
+    "main.js.map": "/pototoro/static/js/main.70329699.chunk.js.map",
     "runtime-main.js": "/pototoro/static/js/runtime-main.5da4f4bb.js",
     "runtime-main.js.map": "/pototoro/static/js/runtime-main.5da4f4bb.js.map",
-    "static/js/2.26f4ac4c.chunk.js": "/pototoro/static/js/2.26f4ac4c.chunk.js",
-    "static/js/2.26f4ac4c.chunk.js.map": "/pototoro/static/js/2.26f4ac4c.chunk.js.map",
+    "static/js/2.2e5b210a.chunk.js": "/pototoro/static/js/2.2e5b210a.chunk.js",
+    "static/js/2.2e5b210a.chunk.js.map": "/pototoro/static/js/2.2e5b210a.chunk.js.map",
     "index.html": "/pototoro/index.html",
-    "precache-manifest.5eab1e04c49d76cd08cc3f4f5eb0a130.js": "/pototoro/precache-manifest.5eab1e04c49d76cd08cc3f4f5eb0a130.js",
+    "precache-manifest.3c71bcbb3ade68c7020ea1d0b61b3836.js": "/pototoro/precache-manifest.3c71bcbb3ade68c7020ea1d0b61b3836.js",
     "service-worker.js": "/pototoro/service-worker.js",
     "static/css/main.68a5ae8e.chunk.css.map": "/pototoro/static/css/main.68a5ae8e.chunk.css.map",
-    "static/js/2.26f4ac4c.chunk.js.LICENSE.txt": "/pototoro/static/js/2.26f4ac4c.chunk.js.LICENSE.txt"
+    "static/js/2.2e5b210a.chunk.js.LICENSE.txt": "/pototoro/static/js/2.2e5b210a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5da4f4bb.js",
-    "static/js/2.26f4ac4c.chunk.js",
+    "static/js/2.2e5b210a.chunk.js",
     "static/css/main.68a5ae8e.chunk.css",
-    "static/js/main.cd5aa2f4.chunk.js"
+    "static/js/main.70329699.chunk.js"
   ]
 }
