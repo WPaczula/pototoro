@@ -2,13 +2,13 @@ import * as React from 'react';
 
 interface ICarouselIterator<T> {
 	current: T;
-	increment(): void;
+	next(): void;
 }
 
 function useCarousel<T>(items: Array<T>): ICarouselIterator<T> {
 	const [index, setIndex] = React.useState<number>(0);
 
-	const increment = React.useCallback(() => {
+	const next = React.useCallback(() => {
 		let newIndex = 0;
 
 		if (index + 1 > items.length - 1) {
@@ -21,7 +21,7 @@ function useCarousel<T>(items: Array<T>): ICarouselIterator<T> {
 
 	return {
 		current: items[index],
-		increment
+		next
 	};
 }
 

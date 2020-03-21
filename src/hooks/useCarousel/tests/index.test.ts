@@ -15,7 +15,7 @@ describe('useCarousel', () => {
 		const { result } = renderHook(() => useCarousel<number>(items));
 
 		act(() => {
-			result.current.increment();
+			result.current.next();
 		});
 
 		expect(result.current.current).toBe(items[1]);
@@ -27,7 +27,7 @@ describe('useCarousel', () => {
 
 		items.forEach(() => {
 			act(() => {
-				result.current.increment();
+				result.current.next();
 			});
 		});
 

@@ -6,6 +6,7 @@ import useTimer from 'hooks/useTimer';
 import { minute } from 'utils/constants';
 import usePomodoroTimersSetup from './usePomodoroTimersSetup';
 import styles from './styles.module.scss';
+import useCarousel from 'hooks/useCarousel';
 
 interface ITimerProps {}
 
@@ -17,7 +18,20 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
 		onLongBreakTimeChange
 	} = usePomodoroTimersSetup();
 
-	const { currentTime, toggle } = useTimer(state.workTime);
+	const { current: initialTime, next } = useCarousel([
+		state.workTime,
+		state.shortBreakTime,
+		state.workTime,
+		state.longBreakTime
+	]);
+	const { currentTime, toggle, isFinished } = useTimer(initialTime);
+
+	React.useEffect(() => {
+		if (isFinished) {
+			next();
+			toggle();
+		}
+	}, [isFinished, next, toggle]);
 
 	const onClick = React.useCallback(
 		(e: React.MouseEvent): void => {
@@ -29,7 +43,7 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
 
 	return (
 		<div className={styles['timer']}>
-			<Clock timeLeft={currentTime} initialTime={state.workTime} />
+			<Clock timeLeft={currentTime} initialTime={initialTime} />
 			<label className={styles['timer__label']}>
 				Work [min]
 				<TimeInput

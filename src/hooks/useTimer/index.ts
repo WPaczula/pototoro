@@ -36,7 +36,12 @@ const useTimer = (time: number): ITimerState => {
 		}
 	}, [currentTime, setIsOn, setIsFinished]);
 
-	const toggle = React.useCallback(() => setIsOn((o: boolean) => !o), []);
+	const toggle = React.useCallback(() => {
+		if (isFinished) {
+			setIsFinished(false);
+		}
+		setIsOn((o: boolean) => !o);
+	}, [isFinished]);
 
 	return {
 		isFinished,
