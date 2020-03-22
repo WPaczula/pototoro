@@ -6,6 +6,7 @@ import usePomodoroTimersSetup from '../../hooks/usePomodoroTimersSetup';
 import styles from './styles.module.scss';
 import useCarousel from 'hooks/useCarousel';
 import TimerSetup from 'components/TimerSetup';
+import Totoro, { TotoroState } from 'components/Totoro';
 
 interface ITimerProps {}
 
@@ -23,6 +24,7 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
 		timerConfiguration.workTime,
 		timerConfiguration.longBreakTime
 	]);
+
 	const { currentTime, toggle, reset, isFinished, isOn } = useTimer(
 		initialTime
 	);
@@ -49,11 +51,16 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
 
 	return (
 		<div className={styles['timer']}>
-			<Clock
-				timeLeft={currentTime}
-				initialTime={initialTime}
-				isRunning={isOn}
-			/>
+			<Clock timeLeft={currentTime} initialTime={initialTime} isRunning={isOn}>
+				<Totoro
+					hidden={!isOn}
+					state={
+						initialTime === timerConfiguration.workTime
+							? TotoroState.Work
+							: TotoroState.Break
+					}
+				/>
+			</Clock>
 			<TimerSetup
 				timerConfiguration={timerConfiguration}
 				onWorkTimeChange={onWorkTimeChange}

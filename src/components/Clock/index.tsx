@@ -6,6 +6,7 @@ interface IClockProps {
 	timeLeft?: number;
 	initialTime?: number;
 	isRunning: boolean;
+	children?: React.ReactChild;
 }
 
 const FULL_DASH_ARRAY = 283;
@@ -35,7 +36,8 @@ const formatTime = (totalSeconds: number): string => {
 const Clock: React.FunctionComponent<IClockProps> = ({
 	timeLeft,
 	initialTime,
-	isRunning
+	isRunning,
+	children
 }) => {
 	const dashArray: number =
 		initialTime && timeLeft
@@ -73,6 +75,7 @@ const Clock: React.FunctionComponent<IClockProps> = ({
 					></path>
 				</g>
 			</svg>
+			{children}
 			<span
 				className={classNames(styles['clock__label'], {
 					[styles['clock__label--bottom']]: isRunning
