@@ -1,9 +1,11 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import styles from './styles.module.scss';
 
 interface IClockProps {
 	timeLeft?: number;
 	initialTime?: number;
+	isRunning: boolean;
 }
 
 const FULL_DASH_ARRAY = 283;
@@ -32,7 +34,8 @@ const formatTime = (totalSeconds: number): string => {
 
 const Clock: React.FunctionComponent<IClockProps> = ({
 	timeLeft,
-	initialTime
+	initialTime,
+	isRunning
 }) => {
 	const dashArray: number =
 		initialTime && timeLeft
@@ -40,18 +43,26 @@ const Clock: React.FunctionComponent<IClockProps> = ({
 			: 0;
 
 	return (
-		<div className={styles['clock']}>
+		<div
+			className={classNames(styles['clock'], {
+				[styles['clock--running']]: isRunning
+			})}
+		>
 			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 				<g className={styles['clock__circle']}>
 					<circle
-						className={styles['clock__path']}
+						className={classNames(styles['clock__path'], {
+							[styles['clock__path--thin']]: isRunning
+						})}
 						cx="50"
 						cy="50"
 						r="45"
 					></circle>
 					<path
 						strokeDasharray={`${dashArray.toFixed(0)} ${FULL_DASH_ARRAY}`}
-						className={styles['clock__path-remaining']}
+						className={classNames(styles['clock__path-remaining'], {
+							[styles['clock__path-remaining--thin']]: isRunning
+						})}
 						data-testid="clock-remaining-time"
 						d="
 							M 50, 50
@@ -62,7 +73,12 @@ const Clock: React.FunctionComponent<IClockProps> = ({
 					></path>
 				</g>
 			</svg>
-			<span className={styles['clock__label']} data-testid="clock-label">
+			<span
+				className={classNames(styles['clock__label'], {
+					[styles['clock__label--bottom']]: isRunning
+				})}
+				data-testid="clock-label"
+			>
 				{timeLeft ? formatTime(timeLeft) : '-'}
 			</span>
 		</div>

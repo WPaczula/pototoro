@@ -3,6 +3,7 @@ import * as React from 'react';
 interface ICarouselIterator<T> {
 	current: T;
 	next(): void;
+	restart(): void;
 }
 
 function useCarousel<T>(items: Array<T>): ICarouselIterator<T> {
@@ -19,9 +20,14 @@ function useCarousel<T>(items: Array<T>): ICarouselIterator<T> {
 		}
 	}, [index, setIndex, items]);
 
+	const restart = React.useCallback(() => {
+		setIndex(0);
+	}, [setIndex]);
+
 	return {
 		current: items[index],
-		next
+		next,
+		restart
 	};
 }
 

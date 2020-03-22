@@ -1,30 +1,31 @@
 import * as React from 'react';
 import Button from 'components/Button';
 import Clock from 'components/Clock';
-import TimeInput from 'components/Input';
 import useTimer from 'hooks/useTimer';
-import { minute } from 'utils/constants';
-import usePomodoroTimersSetup from './usePomodoroTimersSetup';
+import usePomodoroTimersSetup from '../../hooks/usePomodoroTimersSetup';
 import styles from './styles.module.scss';
 import useCarousel from 'hooks/useCarousel';
+import TimerSetup from 'components/TimerSetup';
 
 interface ITimerProps {}
 
 const Timer: React.FunctionComponent<ITimerProps> = () => {
 	const {
-		state,
+		timerConfiguration,
 		onWorkTimeChange,
 		onShortBreakTimeChange,
 		onLongBreakTimeChange
 	} = usePomodoroTimersSetup();
 
-	const { current: initialTime, next } = useCarousel([
-		state.workTime,
-		state.shortBreakTime,
-		state.workTime,
-		state.longBreakTime
+	const { current: initialTime, next, restart } = useCarousel([
+		timerConfiguration.workTime,
+		timerConfiguration.shortBreakTime,
+		timerConfiguration.workTime,
+		timerConfiguration.longBreakTime
 	]);
-	const { currentTime, toggle, isFinished } = useTimer(initialTime);
+	const { currentTime, toggle, reset, isFinished, isOn } = useTimer(
+		initialTime
+	);
 
 	React.useEffect(() => {
 		if (isFinished) {
@@ -36,39 +37,33 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
 	const onClick = React.useCallback(
 		(e: React.MouseEvent): void => {
 			e.preventDefault();
-			toggle();
+			if (isOn) {
+				reset();
+				restart();
+			} else {
+				toggle();
+			}
 		},
-		[toggle]
+		[toggle, reset, restart, isOn]
 	);
 
 	return (
 		<div className={styles['timer']}>
-			<Clock timeLeft={currentTime} initialTime={initialTime} />
-			<label className={styles['timer__label']}>
-				Work [min]
-				<TimeInput
-					className={styles['timer__input']}
-					initialValue={state.workTime / minute}
-					onChange={onWorkTimeChange}
-				/>
-			</label>
-			<label className={styles['timer__label']}>
-				Short break [min]
-				<TimeInput
-					className={styles['timer__input']}
-					initialValue={state.shortBreakTime / minute}
-					onChange={onShortBreakTimeChange}
-				/>
-			</label>
-			<label className={styles['timer__label']}>
-				Long break [min]
-				<TimeInput
-					className={styles['timer__input']}
-					initialValue={state.longBreakTime / minute}
-					onChange={onLongBreakTimeChange}
-				/>
-			</label>
-			<Button onClick={onClick}>START</Button>
+			<Clock
+				timeLeft={currentTime}
+				initialTime={initialTime}
+				isRunning={isOn}
+			/>
+			<TimerSetup
+				timerConfiguration={timerConfiguration}
+				onWorkTimeChange={onWorkTimeChange}
+				onShortBreakTimeChange={onShortBreakTimeChange}
+				onLongBreakTimeChange={onLongBreakTimeChange}
+				visible={!isOn}
+			/>
+			<Button className={styles['timer__button']} onClick={onClick}>
+				{isOn ? 'RESET' : 'START'}
+			</Button>
 		</div>
 	);
 };

@@ -1,17 +1,19 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import styles from './styles.module.scss';
 
 interface ITimeInputProps {
 	initialValue?: number;
 	onChange: (minutes: number) => void;
 	className?: string;
+	['data-testid']?: string;
 }
 
 const TimeInput: React.FunctionComponent<ITimeInputProps> = ({
 	initialValue = 0,
 	onChange,
-	className
+	className,
+	['data-testid']: testId
 }) => {
 	const [value, setValue] = React.useState<number>(initialValue);
 
@@ -29,7 +31,8 @@ const TimeInput: React.FunctionComponent<ITimeInputProps> = ({
 
 	return (
 		<input
-			className={classnames(styles['input'], className)}
+			data-testid={testId}
+			className={classNames(styles['input'], className)}
 			type="number"
 			min="0"
 			max="60"

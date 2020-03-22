@@ -1,0 +1,19 @@
+.timer-setup {
+	opacity: 1;
+	height: 13em;
+	max-height: 13em;
+	transition: opacity 0.5s, max-height 1s;
+	transform-origin: top;
+	overflow: hidden;
+
+	&--disappearing {
+		opacity: 0;
+		max-height: 0;
+	}
+
+	&__label {
+		display: flex;
+		flex-direction: column;
+		margin: 0.5em 0;
+	}
+}

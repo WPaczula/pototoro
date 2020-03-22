@@ -1,23 +1,39 @@
 @import '~styles/variables';
 
-$height: 300px;
-$width: 300px;
+$size: 10em;
+$size-running: 23em;
 $stroke-width: 0.3em;
+$stroke-width-thin: 0.25em;
+
+@mixin thinning {
+	transition: stroke-width 1s;
+}
 
 .clock {
+	transition: height 1s, width 1s;
 	position: relative;
-	height: $height;
-	width: $width;
+	height: $size;
+	width: $size;
+
+	&--running {
+		height: $size-running;
+		width: $size-running;
+	}
 
 	&__label {
 		position: absolute;
-		width: $height;
-		height: $width;
-		top: 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: top 1s;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-size: 48px;
+
+		&--bottom {
+			top: 80%;
+		}
 	}
 
 	&__circle {
@@ -26,16 +42,26 @@ $stroke-width: 0.3em;
 	}
 
 	&__path {
+		@include thinning;
 		stroke-width: $stroke-width;
 		stroke: $color-secondary;
+
+		&--thin {
+			stroke-width: $stroke-width-thin;
+		}
 	}
 
 	&__path-remaining {
+		@include thinning;
 		stroke-width: $stroke-width;
 		stroke-linecap: round;
 		transform-origin: center;
 		transition: 1s linear all;
 		stroke: $color-primary;
 		transform: scale(-1, 1) rotate(90deg);
+
+		&--thin {
+			stroke-width: $stroke-width-thin;
+		}
 	}
 }

@@ -3,7 +3,9 @@ import React from 'react';
 export interface ITimerState {
 	isFinished: boolean;
 	currentTime: number;
-	toggle: () => void;
+	isOn: boolean;
+	toggle(): void;
+	reset(): void;
 }
 
 const second = 1000;
@@ -43,10 +45,18 @@ const useTimer = (time: number): ITimerState => {
 		setIsOn((o: boolean) => !o);
 	}, [isFinished]);
 
+	const reset = React.useCallback(() => {
+		setCurrentTime(time);
+		setIsOn(false);
+		setIsFinished(false);
+	}, [setIsOn, setIsFinished, setCurrentTime, time]);
+
 	return {
 		isFinished,
+		reset,
 		toggle,
-		currentTime
+		currentTime,
+		isOn
 	};
 };
 

@@ -8,8 +8,8 @@ import {
 } from './actions';
 import { minute } from 'utils/constants';
 
-interface IPomodoroSetup {
-	state: ITimerSetupState;
+export interface IPomodoroSetup {
+	timerConfiguration: ITimerSetupState;
 	onWorkTimeChange: (minutes: number) => void;
 	onShortBreakTimeChange: (minutes: number) => void;
 	onLongBreakTimeChange: (minutes: number) => void;
@@ -37,7 +37,7 @@ const usePomodoroTimersSetup = (): IPomodoroSetup => {
 	}, []);
 
 	return {
-		state,
+		timerConfiguration: state,
 		onWorkTimeChange,
 		onShortBreakTimeChange,
 		onLongBreakTimeChange

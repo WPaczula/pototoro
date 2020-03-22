@@ -1,14 +1,17 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import styles from './styles.module.scss';
 
 interface IButtonProps {
 	children: React.ReactNode;
-	onClick: (event: React.MouseEvent) => void;
+	onClick(event: React.MouseEvent): void;
+	className?: string;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = ({
 	children,
-	onClick
+	onClick,
+	className
 }) => {
 	const ref = React.useRef<HTMLButtonElement>(null);
 
@@ -18,7 +21,11 @@ const Button: React.FunctionComponent<IButtonProps> = ({
 	};
 
 	return (
-		<button onClick={localOnClick} className={styles['button']} ref={ref}>
+		<button
+			onClick={localOnClick}
+			className={classNames(styles['button'], className)}
+			ref={ref}
+		>
 			{children}
 		</button>
 	);
