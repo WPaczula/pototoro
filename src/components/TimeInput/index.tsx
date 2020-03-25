@@ -10,7 +10,7 @@ interface ITimeInputProps {
 }
 
 const TimeInput: React.FunctionComponent<ITimeInputProps> = ({
-	initialValue = 0,
+	initialValue = 1,
 	onChange,
 	className,
 	['data-testid']: testId
@@ -22,7 +22,7 @@ const TimeInput: React.FunctionComponent<ITimeInputProps> = ({
 			const minutes =
 				event.currentTarget.value !== ''
 					? Number(event.currentTarget.value)
-					: 0;
+					: 1;
 			setValue(minutes);
 			onChange(minutes);
 		},
@@ -34,7 +34,7 @@ const TimeInput: React.FunctionComponent<ITimeInputProps> = ({
 			data-testid={testId}
 			className={classNames(styles['input'], className)}
 			type="number"
-			min="0"
+			min="1"
 			max="60"
 			value={value.toString()}
 			onChange={localOnChange}

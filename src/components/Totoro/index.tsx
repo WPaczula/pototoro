@@ -25,13 +25,18 @@ const Totoro: React.FunctionComponent<ITotoroProps> = ({ hidden, state }) => {
 	React.useEffect(() => {
 		setChanging(true);
 
-		setTimeout(() => {
+		const stateInterval = setTimeout(() => {
 			setDebouncedState(state);
 		}, 300);
 
-		setTimeout(() => {
+		const changeInterval = setTimeout(() => {
 			setChanging(false);
 		}, 1000);
+
+		return () => {
+			clearInterval(stateInterval);
+			clearInterval(changeInterval);
+		};
 	}, [state]);
 
 	return (

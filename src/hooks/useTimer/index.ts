@@ -20,15 +20,15 @@ const useTimer = (time: number): ITimerState => {
 	}, [time, setCurrentTime]);
 
 	React.useEffect(() => {
+		let interval: any;
 		if (isOn) {
-			const interval = setInterval(() => {
+			interval = setInterval(() => {
 				setCurrentTime((t: number): number => t - 1);
 			}, second);
-
-			return () => {
-				clearInterval(interval);
-			};
 		}
+		return () => {
+			clearInterval(interval);
+		};
 	}, [isOn, setCurrentTime]);
 
 	React.useEffect(() => {

@@ -2,6 +2,8 @@ import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import Timer from '..';
 
+jest.useFakeTimers();
+
 describe('<Timer />', () => {
 	it('should have initial state.', () => {
 		const initialWorkMinutes = 50;

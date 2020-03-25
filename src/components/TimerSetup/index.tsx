@@ -1,7 +1,7 @@
 import * as React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { IPomodoroSetup } from 'hooks/usePomodoroTimersSetup';
-import TimeInput from 'components/Input';
+import TimeInput from 'components/TimeInput';
 import { minute } from 'utils/constants';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
