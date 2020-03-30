@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b876b9bac97b19809ba699740b900ebf",
+    "revision": "736da29968dac2c9ae48e296415b709c",
     "url": "/pototoro/index.html"
   },
   {
