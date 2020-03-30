@@ -2,12 +2,14 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Work from './images/work.gif';
 import Break from './images/break.gif';
+import LongBreak from './images/long-break.gif';
 import styles from './styles.module.scss';
 
 /* eslint-disable no-unused-vars */
 export enum TotoroState {
 	Work,
-	Break
+	Break,
+	LongBreak
 }
 /* eslint-enable no-unused-vars */
 
@@ -15,6 +17,17 @@ interface ITotoroProps {
 	hidden: boolean;
 	state: TotoroState;
 }
+
+const getImage = (state: TotoroState): string => {
+	switch (state) {
+		case TotoroState.Break:
+			return Break;
+		case TotoroState.LongBreak:
+			return LongBreak;
+		case TotoroState.Work:
+			return Work;
+	}
+};
 
 const Totoro: React.FunctionComponent<ITotoroProps> = ({ hidden, state }) => {
 	const [changing, setChanging] = React.useState<boolean>(false);
@@ -45,7 +58,7 @@ const Totoro: React.FunctionComponent<ITotoroProps> = ({ hidden, state }) => {
 				[styles['totoro--hidden']]: hidden,
 				[styles['totoro--changing']]: changing
 			})}
-			src={debouncedState === TotoroState.Work ? Work : Break}
+			src={getImage(debouncedState)}
 		/>
 	);
 };

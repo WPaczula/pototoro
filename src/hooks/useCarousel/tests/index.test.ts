@@ -1,6 +1,9 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import useCarousel from '..';
 
+const mockPlay = jest.fn();
+jest.mock('hooks/useNotificationSound', () => () => mockPlay);
+
 describe('useCarousel', () => {
 	it('should return first item by default.', () => {
 		const items = [1, 2, 3];

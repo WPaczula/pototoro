@@ -4,3 +4,4 @@
 /node_modules
 /github
 /scripts
+/src/react-app-env.d.ts

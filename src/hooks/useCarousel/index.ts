@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useNotificationSound from 'hooks/useNotificationSound';
 
 interface ICarouselIterator<T> {
 	current: T;
@@ -7,6 +8,7 @@ interface ICarouselIterator<T> {
 }
 
 function useCarousel<T>(items: Array<T>): ICarouselIterator<T> {
+	const play = useNotificationSound();
 	const [index, setIndex] = React.useState<number>(0);
 
 	const next = React.useCallback(() => {
@@ -18,7 +20,9 @@ function useCarousel<T>(items: Array<T>): ICarouselIterator<T> {
 			newIndex = index + 1;
 			setIndex(newIndex);
 		}
-	}, [index, setIndex, items]);
+
+		play();
+	}, [index, setIndex, items, play]);
 
 	const restart = React.useCallback(() => {
 		setIndex(0);

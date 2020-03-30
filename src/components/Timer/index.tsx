@@ -49,17 +49,30 @@ const Timer: React.FunctionComponent<ITimerProps> = () => {
 		[toggle, reset, restart, isOn]
 	);
 
+	const getTotoroState = React.useCallback(
+		(initialTime: number) => {
+			switch (initialTime) {
+				case timerConfiguration.workTime:
+					return TotoroState.Work;
+				case timerConfiguration.shortBreakTime:
+					return TotoroState.Break;
+				case timerConfiguration.longBreakTime:
+					return TotoroState.LongBreak;
+				default:
+					throw new Error('Initial time is not equal any of 3 stages');
+			}
+		},
+		[
+			timerConfiguration.longBreakTime,
+			timerConfiguration.shortBreakTime,
+			timerConfiguration.workTime
+		]
+	);
+
 	return (
 		<div className={styles['timer']}>
 			<Clock timeLeft={currentTime} initialTime={initialTime} isRunning={isOn}>
-				<Totoro
-					hidden={!isOn}
-					state={
-						initialTime === timerConfiguration.workTime
-							? TotoroState.Work
-							: TotoroState.Break
-					}
-				/>
+				<Totoro hidden={!isOn} state={getTotoroState(initialTime)} />
 			</Clock>
 			<TimerSetup
 				timerConfiguration={timerConfiguration}
