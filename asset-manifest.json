@@ -1,24 +1,26 @@
 {
   "files": {
-    "main.css": "/pototoro/static/css/main.e7a89cbc.chunk.css",
-    "main.js": "/pototoro/static/js/main.3d6e5c15.chunk.js",
-    "main.js.map": "/pototoro/static/js/main.3d6e5c15.chunk.js.map",
-    "runtime-main.js": "/pototoro/static/js/runtime-main.5da4f4bb.js",
-    "runtime-main.js.map": "/pototoro/static/js/runtime-main.5da4f4bb.js.map",
-    "static/js/2.9c8ae79a.chunk.js": "/pototoro/static/js/2.9c8ae79a.chunk.js",
-    "static/js/2.9c8ae79a.chunk.js.map": "/pototoro/static/js/2.9c8ae79a.chunk.js.map",
+    "main.css": "/pototoro/static/css/main.7b7fdc00.chunk.css",
+    "main.js": "/pototoro/static/js/main.08faa023.chunk.js",
+    "main.js.map": "/pototoro/static/js/main.08faa023.chunk.js.map",
+    "runtime-main.js": "/pototoro/static/js/runtime-main.fa8dee1e.js",
+    "runtime-main.js.map": "/pototoro/static/js/runtime-main.fa8dee1e.js.map",
+    "static/js/2.16bad544.chunk.js": "/pototoro/static/js/2.16bad544.chunk.js",
+    "static/js/2.16bad544.chunk.js.map": "/pototoro/static/js/2.16bad544.chunk.js.map",
     "index.html": "/pototoro/index.html",
-    "precache-manifest.0873ae423152e74726d6e362b99b1b4c.js": "/pototoro/precache-manifest.0873ae423152e74726d6e362b99b1b4c.js",
+    "precache-manifest.55ba6337fc8f8c44e7fbff69c3d4c1e9.js": "/pototoro/precache-manifest.55ba6337fc8f8c44e7fbff69c3d4c1e9.js",
     "service-worker.js": "/pototoro/service-worker.js",
-    "static/css/main.e7a89cbc.chunk.css.map": "/pototoro/static/css/main.e7a89cbc.chunk.css.map",
-    "static/js/2.9c8ae79a.chunk.js.LICENSE.txt": "/pototoro/static/js/2.9c8ae79a.chunk.js.LICENSE.txt",
-    "static/media/break.gif": "/pototoro/static/media/break.6a93a05c.gif",
-    "static/media/work.gif": "/pototoro/static/media/work.48ee6419.gif"
+    "static/css/main.7b7fdc00.chunk.css.map": "/pototoro/static/css/main.7b7fdc00.chunk.css.map",
+    "static/js/2.16bad544.chunk.js.LICENSE.txt": "/pototoro/static/js/2.16bad544.chunk.js.LICENSE.txt",
+    "static/media/break.gif": "/pototoro/static/media/break.48ee6419.gif",
+    "static/media/info.mp3": "/pototoro/static/media/info.f3e1419d.mp3",
+    "static/media/long-break.gif": "/pototoro/static/media/long-break.6a93a05c.gif",
+    "static/media/work.gif": "/pototoro/static/media/work.bf866514.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.5da4f4bb.js",
-    "static/js/2.9c8ae79a.chunk.js",
-    "static/css/main.e7a89cbc.chunk.css",
-    "static/js/main.3d6e5c15.chunk.js"
+    "static/js/runtime-main.fa8dee1e.js",
+    "static/js/2.16bad544.chunk.js",
+    "static/css/main.7b7fdc00.chunk.css",
+    "static/js/main.08faa023.chunk.js"
   ]
 }
