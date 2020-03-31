@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "736da29968dac2c9ae48e296415b709c",
+    "revision": "3250c602f1e03b504cadba36badf3583",
     "url": "/pototoro/index.html"
   },
   {
-    "revision": "db83872010f88abd3b9f",
+    "revision": "b51af2d6fd5a75ba4f8a",
     "url": "/pototoro/static/css/main.7b7fdc00.chunk.css"
   },
   {
-    "revision": "595be03690cea90ac4fe",
-    "url": "/pototoro/static/js/2.16bad544.chunk.js"
+    "revision": "4450700c352fcf66b52a",
+    "url": "/pototoro/static/js/2.7ac075f1.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/pototoro/static/js/2.16bad544.chunk.js.LICENSE.txt"
+    "url": "/pototoro/static/js/2.7ac075f1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "db83872010f88abd3b9f",
-    "url": "/pototoro/static/js/main.08faa023.chunk.js"
+    "revision": "b51af2d6fd5a75ba4f8a",
+    "url": "/pototoro/static/js/main.351e2b0b.chunk.js"
   },
   {
-    "revision": "3b0cf7a0ab50905ff9cc",
-    "url": "/pototoro/static/js/runtime-main.fa8dee1e.js"
+    "revision": "fa2d3ead11a4ed85c607",
+    "url": "/pototoro/static/js/runtime-main.abf88e54.js"
   },
   {
     "revision": "48ee64197b7d30fcbfb0a33a5e326ecc",
