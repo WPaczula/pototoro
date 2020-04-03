@@ -56,7 +56,10 @@ const Totoro: React.FunctionComponent<ITotoroProps> = ({ hidden, state }) => {
 		<img
 			className={classNames(styles['totoro'], {
 				[styles['totoro--hidden']]: hidden,
-				[styles['totoro--changing']]: changing
+				[styles['totoro--changing']]: changing,
+				[styles['totoro--work']]: debouncedState === TotoroState.Work,
+				[styles['totoro--break']]: debouncedState === TotoroState.Break,
+				[styles['totoro--long-break']]: debouncedState === TotoroState.LongBreak
 			})}
 			src={getImage(debouncedState)}
 		/>

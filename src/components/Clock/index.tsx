@@ -52,13 +52,30 @@ const Clock: React.FunctionComponent<IClockProps> = ({
 		>
 			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 				<g className={styles['clock__circle']}>
+					<filter id="dropshadow" x="-2" y="-2" width="200" height="200">
+						<feOffset result="offOut" in="SourceGraphic" dx="0" dy="2" />
+						<feGaussianBlur result="blurOut" in="offOut" stdDeviation="1" />
+						<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+					</filter>
+					<circle
+						className={classNames(
+							styles['clock__path'],
+							styles['clock__path--shadow'],
+							{
+								[styles['clock__path--thin']]: isRunning
+							}
+						)}
+						cx="50"
+						cy="50"
+						r="40"
+					></circle>
 					<circle
 						className={classNames(styles['clock__path'], {
 							[styles['clock__path--thin']]: isRunning
 						})}
 						cx="50"
 						cy="50"
-						r="45"
+						r="40"
 					></circle>
 					<path
 						strokeDasharray={`${dashArray.toFixed(0)} ${FULL_DASH_ARRAY}`}
@@ -68,9 +85,9 @@ const Clock: React.FunctionComponent<IClockProps> = ({
 						data-testid="clock-remaining-time"
 						d="
 							M 50, 50
-							m -45, 0
-							a 45,45 0 1,0 90,0
-							a 45,45 0 1,0 -90,0
+							m -40, 0
+							a 40,40 0 1,0 80,0
+							a 40,40 0 1,0 -80,0
 							"
 					></path>
 				</g>
