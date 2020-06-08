@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pototoro/precache-manifest.5bbc9ac814fa5bd6f6ec9db175023319.js"
+  "/pototoro/precache-manifest.7a276e53e39c13d0138adade53023ebd.js"
 );
 
 self.addEventListener('message', (event) => {
