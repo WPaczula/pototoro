@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7670b28259c23da484b13adaa789c3cf",
+    "revision": "8a658ef0e7191df61c19c3ddbc2d9738",
     "url": "/pototoro/index.html"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pototoro/static/css/main.8f2d598e.chunk.css"
   },
   {
-    "revision": "6bd5773cf389f4d59f25",
-    "url": "/pototoro/static/js/2.d2f06d09.chunk.js"
+    "revision": "87d69bcefca230535145",
+    "url": "/pototoro/static/js/2.948a9a59.chunk.js"
   },
   {
-    "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/pototoro/static/js/2.d2f06d09.chunk.js.LICENSE.txt"
+    "revision": "8a137f586fcebb1a370343eb47b7677c",
+    "url": "/pototoro/static/js/2.948a9a59.chunk.js.LICENSE.txt"
   },
   {
     "revision": "96f9b6c4275704b66add",
